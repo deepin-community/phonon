@@ -1,0 +1,2 @@
+version=4
+opts=pgpsigurlmangle=s/$/.sig/ https://download.kde.org/stable/phonon/([\d.]+)/@PACKAGE@@ANY_VERSION@@ARCHIVE_EXT@

@@ -1,0 +1,4 @@
+# empty on purpose
+phonon4qt5-backend-null: empty-binary-package
+# empty on purpose
+phonon4qt5-backend-null: package-contains-no-arch-dependent-files

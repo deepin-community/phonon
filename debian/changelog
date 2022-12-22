@@ -1,0 +1,926 @@
+phonon (4:4.11.1-4) unstable; urgency=medium
+
+  [ Debconf translation updates ]
+  * Dutch (Frans Spiesschaert). (Closes: #945358)
+  * Portuguese (Américo Monteiro). (Closes: #962410)
+  * Brazilian portuguese (Jorge Neto, Adriano Rafael Gomes). (Closes: #987438)
+  * Spanish (Camaleón). (Closes: #987338)
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Mon, 03 May 2021 18:22:52 -0300
+
+phonon (4:4.11.1-3) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+
+ -- Pino Toscano <pino@debian.org>  Tue, 12 Nov 2019 21:09:15 +0100
+
+phonon (4:4.11.1-2) experimental; urgency=medium
+
+  * Team upload.
+  * Build and ship the phononsettings application:
+    - add the new phonon4qt5settings binary package, with the phononsettings,
+      and the translations
+    - remove the -DPHONON_BUILD_SETTINGS=OFF cmake parameter
+  * Remove few qt4 leftovers.
+  * Split the shared data files of libphonon to an own libphonon4qt5-data.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 09 Nov 2019 23:02:53 +0100
+
+phonon (4:4.11.1-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Add German debconf translation (Closes: #939646). Thanks Helge Kreutzmann!
+  * Add French translation (Closes: #941302). Thanks Jean-Pierre Giraud!
+  * Add Russian translation (Closes: #942637). Thanks Lev Lamberov!
+
+  [ Pino Toscano ]
+  * Add the configuration for the CI on salsa.
+  * Bump Standards-Version to 4.4.1, no changes required.
+  * New upstream release.
+  * Update the build dependencies according to the upstream build system:
+    - bump cmake to 3.5
+    - bump extra-cmake-modules to 5.60
+  * Update the cmake parameters:
+    - replace -DPHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT=ON with
+      -DKDE_INSTALL_USE_QT_SYS_PATHS=ON, same effect
+    - remove -DPHONON_BUILD_PHONON4QT5=ON, and
+      -DPHONON_INSTALL_QT_COMPAT_HEADERS=ON, no more used
+    - add -DPHONON_BUILD_SETTINGS=OFF for now (the phononsettings tool will
+      be enabled later)
+  * Update the patches:
+    - phonon-inc.patch: drop, no more needed
+    - phonon_is_not_forced_in_KDE.diff: drop, no more needed
+    - findqt4_optional_x11.diff: drop, no more needed
+  * Update the symbols file.
+  * Update install files.
+  * Remove translations of phononsettings, which is not shipped.
+  * Switch from dhmk to the dh sequencer:
+    - invoke the dh sequencer using the kf5 addon
+    - explicitly link in as-needed mode
+    - make sure libphonon4qt5experimental4 has a strict dependency on
+      libphonon4qt5-4
+    - call the right debhelper command instead of $(overridden_command)
+    - use $(DEB_VERSION_EPOCH_UPSTREAM) from /usr/share/dpkg/pkg-info.mk
+      instead of $(dqk_upstream_version)
+    - remove the -DKDE_INSTALL_USE_QT_SYS_PATHS=ON cmake parameter, as it is
+      already set by the kf5 addon
+  * Move all the experimental headers from libphonon4qt5-dev to
+    libphonon4qt5experimental-dev
+    - add proper breaks/replaces
+
+ -- Pino Toscano <pino@debian.org>  Wed, 06 Nov 2019 19:03:40 +0100
+
+phonon (4:4.10.3-3) unstable; urgency=medium
+
+  * Drop Qt 4 support (Closes: #875095).
+  * Bump debhelper compat to 12.
+    - Pass --fail-missing to dh_missing instead of dh_install.
+  * Drop debconf translations for phonon-backend-null and set up translations
+    for phonon4qt5-backend-null.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sat, 31 Aug 2019 13:35:27 -0300
+
+phonon (4:4.10.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * Update symbols files from the logs of buildds.
+  * Small changes to copyright.
+  * Drop the migration from -dbg packages, no more needed after two Debian
+    stable releases.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 11 Aug 2019 07:45:25 +0200
+
+phonon (4:4.10.3-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Update symbols files from the logs of buildds.
+  * Update install files.
+  * Switch Homepage to https.
+  * Bump Standards-Version to 4.4.0, no changes required.
+  * Drop patch do_not_assume_existing_backend.patch, applied upstream long
+    time ago.
+
+ -- Pino Toscano <pino@debian.org>  Tue, 30 Jul 2019 06:59:20 +0200
+
+phonon (4:4.10.2-1) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Adriano Rafael Gomes ]
+  * Add Brazilian Portuguese debconf templates translation (Closes: 903368)
+
+  [ Pino Toscano ]
+  * New upstream release.
+  * Update Vcs-* fields.
+  * Bump Standards-Version to 4.3.0, no changes required.
+  * Update symbols files.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 12 Jan 2019 12:51:52 +0100
+
+phonon (4:4.10.1-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Move /usr/share/phonon/buildsystem/COPYING-CMAKE-SCRIPTS from
+    libphonon4qt5-dev to libphonon-dev, together with the rest of the
+    buildsystem stuff for Qt4
+    - add proper breaks/replaces
+  * Remove debian/not-installed, which refers only to a non-existing file.
+  * Bump Standards-Version to 4.1.4, no changes required.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 06 May 2018 16:32:47 +0200
+
+phonon (4:4.10.0-2) sid; urgency=medium
+
+  * New revision
+  * Update Vcs fields
+  * Release to sid
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 28 Feb 2018 11:04:46 +0100
+
+phonon (4:4.10.0-1) experimental; urgency=medium
+
+  * New upstream release (4.10.0).
+  * Update build-deps and deps with the info from cmake
+  * Release to experimental
+
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 27 Feb 2018 10:52:38 +0100
+
+phonon (4:4.9.1-5) unstable; urgency=medium
+
+  * Team upload.
+  * Update symbols files from logs of buildds.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 09 Feb 2018 07:15:50 +0100
+
+phonon (4:4.9.1-4) unstable; urgency=medium
+
+  * Team upload.
+  * Fix watch file (use @PACKAGE@ instead of @PACKAGENAME@).
+  * Update symbols files from logs of buildds.
+  * Bump Standards-Version to 4.1.3, no changes required.
+  * Use https in the Format of copyright.
+
+ -- Pino Toscano <pino@debian.org>  Thu, 08 Feb 2018 22:33:22 +0100
+
+phonon (4:4.9.1-3) unstable; urgency=medium
+
+  * Team upload.
+  * Update symbols files from logs of buildds.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 22 Dec 2017 23:19:32 +0100
+
+phonon (4:4.9.1-2) unstable; urgency=medium
+
+  * Team upload.
+  * Upload to unstable.
+
+  [ Maximiliano Curia ]
+  * Update uploaders list as requested by MIA team (Closes: #879419)
+
+  [ Pino Toscano ]
+  * Update symbols files. (Closes: #877230)
+  * Update lintian overrides.
+  * Bump Standards-Version to 4.1.2, no changes required.
+
+ -- Pino Toscano <pino@debian.org>  Fri, 22 Dec 2017 12:46:02 +0100
+
+phonon (4:4.9.1-1) experimental; urgency=medium
+
+  [ Pino Toscano ]
+  * update turkish debconf translation (#757504)
+  * switch default qt4 backend to gstreamer
+  * release to unstable, as team upload
+
+  [ Maximiliano Curia ]
+  * New upstream release (4.9.1).
+  * Bump Standards-Version to 4.0.0, no changes needed.
+  * Migrate copyright for to dep5
+  * Update watch file, add upstream signing-key.asc
+  * Update symbols files.
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 12 Jul 2017 10:09:45 +0200
+
+phonon (4:4.9.0-4) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Pino Toscano ]
+  * Remove the unused libqzeitgeist-dev build dependency.
+  * Switch the default backend for phonon (Qt4) from phonon-backend-vlc to
+    phonon-backend-gstreamer: since vlc is a Qt5 application, using it in
+    Qt4-based application will cause crashes due to symbols clashes.
+
+  [ Debconf translation updates ]
+  * Turkish (Mert Dirik). (Closes: #757504)
+
+ -- Pino Toscano <pino@debian.org>  Sun, 31 Jul 2016 14:34:57 +0200
+
+phonon (4:4.9.0-3) unstable; urgency=medium
+
+  * Drop qtquick1-5-dev as a build dependency (Closes: #824957).
+  * Update symbols files with buildds' logs.
+  * Update Vcs-[Git Browser] to their https counterparts.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Fri, 10 Jun 2016 14:29:36 -0300
+
+phonon (4:4.9.0-2) unstable; urgency=medium
+
+  [ Automatic packaging ]
+  * Update symbols files from buildds logs (4:4.9.0-1).
+  * Update symbols files.
+
+  [ Maximiliano Curia ]
+  * Update symbols files, hppa and sparc64 brought back lots of gccinternal symbols
+  * Add missing Breaks/Replaces
+
+ -- Maximiliano Curia <maxy@debian.org>  Wed, 18 May 2016 16:36:28 +0200
+
+phonon (4:4.9.0-1) experimental; urgency=medium
+
+  * New upstream release (4.9.0).
+  * Update symbols files.
+  * Drop automoc build dependency (Closes: #824123) Thanks to Александр Волков
+    for the report.
+  * Add qtquick1-5-dev missing build dependency
+  * Update watch file
+  * Update build-deps and deps with the info from cmake
+  * Bump Standards-Version to 3.9.8
+  * Migrate to the automatic dbgsym packages
+  * Update symbols files with the logs from the buildds.
+  * Refresh patches
+  * Update install files
+  * Add myself to the uploaders list
+
+ -- Maximiliano Curia <maxy@debian.org>  Sat, 14 May 2016 19:30:49 +0200
+
+phonon (4:4.8.3-2) unstable; urgency=medium
+
+  * Team upload.
+  * Make some symbols in libphonon4qt5 create a dependency on phonon4qt5
+    similar to libphonon4.
+  * Fix dependency of phonon4qt5: phonon-backend -> phonon4qt5-backend
+  * Correctly display the recommended backend in phonon4qt5-backend-null
+    debconf warning.
+  * Stop suggesting a mplayer backend, no such thing exists in the archive.
+
+ -- Felix Geyer <fgeyer@debian.org>  Sat, 29 Aug 2015 13:40:09 +0200
+
+phonon (4:4.8.3-1) unstable; urgency=medium
+
+  [ Maximiliano Curia ]
+  * New upstream release (4.8.3).
+  * Use the new PHONON_INSTALL_QT_EXTENSIONS_INTO_SYSTEM_QT build
+    option.
+  * Refresh patches.
+  * Update phonon_is_not_forced_in_KDE patch
+  * Import upstream patch:
+    upstream_dont_allocate_a_char_with_undefined_size
+  * Import upstream patch: upstream_fix_build_with_qt_5.4.2
+  * New patch: fix_include_dirs
+  * Add ecm build dep.
+  * Update symbols files.
+  * Update install files.
+  * Bump Standards-Version to 3.9.6, no changes needed.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sat, 08 Aug 2015 19:45:43 -0300
+
+phonon (4:4.8.0-5) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Add myself to Uploaders.
+
+  [ Rohan Garg ]
+  * Update phonon_is_not_forced_in_KDE.diff so that the
+    new include path is properly exported.
+
+ -- Maximiliano Curia <maxy@debian.org>  Tue, 10 Feb 2015 11:37:23 +0100
+
+phonon (4:4.8.0-4) unstable; urgency=medium
+
+  * Team upload.
+  * Add do_not_assume_existing_backend.patch to solve a crash when running
+    without a backend (Closes: #771138).
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Thu, 27 Nov 2014 10:33:03 -0300
+
+phonon (4:4.8.0-3) unstable; urgency=medium
+
+  * Remove debian/installgen, no longer used.
+  * Simplify merginging expand4qt5_vars.awk into expand_vars.awk
+
+ -- Diane Trout <diane@ghic.org>  Sun, 28 Sep 2014 10:39:24 -0700
+
+phonon (4:4.8.0-2) unstable; urgency=medium
+
+  [ Lisandro Damián Nicanor Pérez Meyer ]
+  * Provide Qt 5 versions of the packages (Closes: #731936).
+    - Modify debian/rules to allow the double build.
+
+  [ Diane Trout]
+  * add libqt5opengl5-dev to build dependencies.
+  * update SO versions to 4.8.0 for libphonon4qt5*.install
+  * Add myself to uploaders.
+  * phonon4qt5-backend-null should only conflict with other
+    phonon4qt5-backends.
+  * update libphonon4qt5-dev.install package
+  * Add symbols files for libphonon4qt5 and libphonon4qt5experimental4
+  * Add override_dh_strip target to correctly build libphonon-dbg (qt4)
+    and libphonon4qt5-dbg (qt5) debug packages.
+  * Add qttools5-dev as a build dependency in order to build qt5 phononwidgets
+    designer support library.
+  * Merge in changes from Kubuntu to support Qt5 debconf warning.
+    (Done by Jonathan Riddell)
+  * Rename libphonon4qt5 library to libphonon4qt5-4 to match soname
+
+ -- Diane Trout <diane@ghic.org>  Sat, 20 Sep 2014 10:27:04 -0700
+
+phonon (4:4.8.0-1) unstable; urgency=medium
+
+  * Team upload.
+
+  * New upstream release (4.8.0).
+  * Update symbols file.
+
+ -- Maximiliano Curia <maxy@debian.org>  Fri, 12 Sep 2014 17:15:34 +0200
+
+phonon (4:4.7.2-1) unstable; urgency=low
+
+  * Team upload.
+
+  [ Pino Toscano ]
+  * Fix the watch file.
+  * phonon: explicitly lists all the backends as suggests, without relying on
+    ${phonon:Recommended-Backend}.
+
+  [ Felix Geyer ]
+  * New upstream release.
+
+ -- Felix Geyer <fgeyer@debian.org>  Mon, 18 Aug 2014 20:46:36 +0200
+
+phonon (4:4.7.1-1) unstable; urgency=low
+
+  * Team upload.
+  * New upstream release.
+  * Remove the extra 0 used to avoid the "really" in the versioning.
+  * Remove no_rpath.patch. The logic of the patch is now available in the
+    upstream code.
+  * Update symbols file. This version adds a new symbol.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Mon, 09 Dec 2013 16:31:51 -0300
+
+phonon (4:4.7.0.0-2) unstable; urgency=low
+
+  * Confirm symbol file on arm*: fixes FTBFSes.
+
+ -- Modestas Vainius <modax@debian.org>  Tue, 05 Nov 2013 19:39:46 +0200
+
+phonon (4:4.7.0.0-1) unstable; urgency=low
+
+  * New upstream release (4.7.0).
+  * Adapt no_rpath.patch to upstream changes.
+  * Refresh phonon-inc.patch.
+  * Update install files.
+  * Update symbol files.
+  * Drop phonon-backend-xine transitional package. No longer needed since it
+    has already been released with Wheezy.
+  * Bump Standards-Version to 3.9.5: no further changes needed.
+  * Use canonical Vcs URLs.
+  * No longer explicitly pass multiarch LIB_SUFFIX to cmake. Phonon gets the
+    multiarch libdir from cmake (as of cmake 2.8.7).
+
+ -- Modestas Vainius <modax@debian.org>  Tue, 05 Nov 2013 13:04:32 +0200
+
+phonon (4:4.6.0.0-3) unstable; urgency=low
+
+  * Team upload.
+  * Add phonon-backend-xine transitional package, transition to the vlc
+    backend. This fixes the "Could not perform immediate configuration on
+    'phonon-backend-vlc'" apt error on upgrades from squeeze (Closes: #669278).
+    Thanks Andreas Beckmann for the patch to fix this issue.
+
+ -- Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>  Sat, 26 Jan 2013 11:57:09 -0300
+
+phonon (4:4.6.0.0-2) unstable; urgency=low
+
+  [ Debconf translation updates ]
+  * Polish (Michał Kułach). (Closes: #670645)
+
+  [ Fathi Boudra ]
+  * Bump Build-Depends on Qt to >= 4.8.1.
+  * Bump debian/compat to 8.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 27 Apr 2012 18:11:46 +0200
+
+phonon (4:4.6.0.0-1+exp1) experimental; urgency=low
+
+  * Team upload.
+
+  [ Felix Geyer ]
+  * Convert for multiarch.
+    - Bump Build-Depends on Qt to >= 4.8.
+    - Bump Build-Depends on debhelper to >= 8.1.3~.
+    - Install libraries to multiarch paths.
+    - Mark libraries Multi-Arch:same.
+    - Change phonon and phonon-backend-null to arch:any and Multi-Arch:same.
+    - Update no_rpath.patch to include multiarch lib paths.
+    - Fix debconf prompt to cope with multi-arch:same packages.
+
+  [ Didier Raboud ]
+  * Bump Standards-Version to 3.9.3 without changes needed.
+
+ -- Didier Raboud <odyx@debian.org>  Tue, 24 Apr 2012 17:15:50 +0200
+
+phonon (4:4.6.0.0-1) unstable; urgency=low
+
+  * New upstream release (4.6.0):
+    - add .0 to the upstream version in order to kill "really" suffix.
+
+  [ Debconf translation updates ]
+  * Italian (Francesca Ciceri). (Closes: #656468)
+
+  [ Sune Vuorela ]
+  * Make phonon conflicts with the xine backend. People must migrate away
+
+  [ Modestas Vainius ]
+  * Adapt findqt4_optional_x11.diff to upstream changes.
+  * Adapt no_rpath.patch to upstream changes.
+  * Add globaldescriptioncontainer.h to phonon-inc.patch.
+  * Refresh phonon_is_not_forced_in_KDE.diff.
+  * Update install files.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 19 Feb 2012 18:06:07 +0200
+
+phonon (4:4.6.0really4.5.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+  [ Pino Toscano ]
+  * Update the patches:
+    - phonon-inc.patch: adapt to the new version
+    - phonon_is_not_forced_in_KDE.diff: refresh
+    - upstream_PHONON_EXPORT_DEPRECATED.diff: drop, applied upstream
+    - upstream_pulse-Use-qPow-as-pow-is-sometimes-not-found.patch: drop,
+      applied upstream
+  * debian/watch: update for the new path and format of tarballs.
+  * Update the symbols files.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Tue, 20 Dec 2011 13:13:55 +0100
+
+phonon (4:4.6.0really4.5.0-6) unstable; urgency=low
+
+  [ Pino Toscano ]
+  * Backport upstream patch to switch from pow() to qPow(). (Closes: #650708)
+    (commit d7d3a08, upstream_pulse-Use-qPow-as-pow-is-sometimes-not-found)
+
+  [ Debconf translation updates ]
+  * Dutch (Jeroen Schot). (Closes: #637506)
+  * Japanese (Hideki Yamane). (Closes: #626849)
+  * Slovak (Slavko). (Closes: #641958)
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 02 Dec 2011 12:35:02 +0100
+
+phonon (4:4.6.0really4.5.0-5) unstable; urgency=low
+
+  [ Pino Toscano ]
+  * Do not make X11 mandatory for phonon and its backends (patch
+    findqt4_optional_x11.diff). (Closes: #641111)
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 10 Sep 2011 16:05:58 +0200
+
+phonon (4:4.6.0really4.5.0-4) unstable; urgency=low
+
+  [Lisandro Damián Nicanor Pérez Meyer]
+  * Add a B-D on libqzeitgeist-dev.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 23 Jun 2011 11:23:58 +0300
+
+phonon (4:4.6.0really4.5.0-3) unstable; urgency=low
+
+  [ Pino Toscano ]
+  * Backport macro usage for registerMetaTypes() from upstream branch 4.5
+    (commit 974fb5f, patch upstream_PHONON_EXPORT_DEPRECATED.diff).
+
+  [ Modestas Vainius ]
+  * Replace $(overriden_command) with $(overridden_command) in debian/rules.
+    Requires pkg-kde-tools 0.12.
+  * Bump Standards-Version to 3.9.2: no changes needed.
+
+  [ Christian Perrier ]
+  * Debconf translation updates:
+    - Danish (Joe Hansen).  Closes: #620817
+    - Czech (Michal Simunek).  Closes: #620855
+    - German (Martin Eberhard Schauer).  Closes: #622223
+    - French (Steve Petruzzello).  Closes: #622736
+    - Russian (Yuri Kozlov).  Closes: #623359
+    - Portuguese (Américo Monteiro).  Closes: #623421
+    - Swedish (Martin Bagge / brother).  Closes: #623399
+    - Spanish (Omar Campagne).  Closes: #623588
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 08 May 2011 00:20:00 +0300
+
+phonon (4:4.6.0really4.5.0-2) unstable; urgency=low
+
+  * Add final post-review version of package descriptions and
+    phonon-backend-null.templates.
+
+ -- Modestas Vainius <modax@debian.org>  Mon, 04 Apr 2011 00:52:30 +0300
+
+phonon (4:4.6.0really4.5.0-1) experimental; urgency=low
+
+  * New upstream release.
+  * Drop cdbs from Build-Depends.
+  * Update install files.
+  * Update symbol files.
+  * Manage phononexperimental ABI via phononexperimental-abi-N virual package.
+  * Add ${shlibs:Depends} to libphonon-dev Depends.
+  * Update package descriptions (thanks to Christian PERRIER and
+    Justin B Rye).
+
+ -- Modestas Vainius <modax@debian.org>  Sun, 27 Mar 2011 12:25:04 +0300
+
+phonon (4:4.6.0really4.4.4-3) unstable; urgency=low
+
+  * Fix FTBFS with binary-arch target.
+
+ -- Modestas Vainius <modax@debian.org>  Sat, 12 Mar 2011 19:27:58 +0200
+
+phonon (4:4.6.0really4.4.4-2) unstable; urgency=low
+
+  * Drop phonon-backends-dbg from phonon-dbg Recommends/Breaks. No longer
+    needed.
+  * Readd packaging copyright/licensing to debian/copyright.
+  * Bump libphonon-dev Breaks/Replaces to << 4:4.6.0really4.4.4 for
+    libphononexperimental-dev. experimental/avcaptureinterface.h header which
+    used to be there up to 4.4.4 (see changelog below).
+  * Switch debian/rules build engine to dhmk (qt-kde-team/2/*):
+    - build-depend on pkg-kde-tools >= 0.11;
+    - port debian/rules to dhmk keeping it dh compatible as much as possible.
+  * Drop unused ${shlibs:Depends} from libphonon-dev and
+    libphononexperimental-dev packages.
+  * Add README.Debian to phonon-backend-null package.
+  * Remove phonon-backend-null.lintian-overrides: phonon-backend-null is no
+    longer and empty package due to README.Debian (see above).
+  * Release to unstable.
+
+ -- Modestas Vainius <modax@debian.org>  Fri, 11 Mar 2011 21:39:20 +0200
+
+phonon (4:4.6.0really4.4.4-1) experimental; urgency=low
+
+  * New upstream release.
+
+  [ Pino Toscano ]
+  * Do not install the header experimental/avcaptureinterface.h in
+    libphonon-dev, as it experimental.
+
+  [ Modestas Vainius ]
+  * Drop phonon-backend-xine and phonon-backend-gstreamer. They have been
+    split off to their own source packages upstream. Only phonon-backend-null
+    remains here.
+  * Remove xine and gstreamer specific packages from Build-Depends.
+  * Adapt 02_no_rpath.patch to upstream changes.
+  * Refresh other debian patches.
+  * Remove sequence number from debian patches filenames.
+  * Update install files.
+  * Switch default backend to phonon-backend-vlc (phonon metapackage).
+  * Try to solve an issue with Phonon backends getting auto-installed on
+    buildds. phonon-backend-null will be preferred if Phonon is installed via
+    libphonon-dev (which normally won't be a case on user systems).
+  * Add lintian override for "phonon-backend-null: empty-binary-package".
+  * Reshuffle backends in the Suggests of the phonon metapackage in the order of
+    preferrence.
+  * Drop README.source, no longer needed since switch to 3.0 (quilt).
+  * Show a debconf warning to users who end up installing phonon-backend-null
+    (probably unintentionally). The warning is displayed only if both phonon
+    and phonon-backend-null packages end up being installed.
+  * Update debian/copyright.
+  * Point Homepage to http://phonon.kde.org/.
+  * Add packages (libphononexperimental4 and libphononexperimental-dev) for the
+    Phonon-Experimental library. It's needed by phonon-backend-gstreamer. The
+    packages include disclaimers (in the README.Debian) about expected usage of
+    this library.
+  * Add libphononexperimental4 to phonon-dbg Suggests.
+  * phonon-dbg: replace "Conflicts: phonon-backends-dbg" with Breaks.
+
+ -- Modestas Vainius <modax@debian.org>  Sat, 05 Mar 2011 02:38:24 +0200
+
+phonon (4:4.6.0really4.4.3-1) experimental; urgency=low
+
+  * New upstream release.
+
+  [ Modestas Vainius ]
+  * Point debian/control Vcs fields to the new Git repository.
+  * Update symbol file. for 4.4.3 on amd64.
+  * Update install files.
+  * Remove references to obsolete << KDE 4.1 from debian/control.
+  * Bump Standards-Version to 3.9.1: add Breaks next to Replaces where needed.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 26 Nov 2010 02:01:14 +0200
+
+phonon (4:4.6.0really4.4.2-1) unstable; urgency=low
+
+  * New upstream release:
+    - fixes PulseAudio breakage in xine backend (Closes: #582716).
+  * Switch to 3.0 (quilt) format:
+    - build depend on pkg-kde-tools (>= 0.9);
+    - set appropriate debian/source/format;
+    - remove quilt from build depends;
+    - use original tar.bz2 tarballs from now on.
+  * Update symbol file.
+  * Drop unused phonon-backend-null lintian-override.
+
+ -- Modestas Vainius <modax@debian.org>  Tue, 08 Jun 2010 02:13:01 +0300
+
+phonon (4:4.6.0really4.4.1-2) unstable; urgency=low
+
+  * Update symbol file for armel, fixes FTBFS.
+
+ -- Modestas Vainius <modax@debian.org>  Sun, 09 May 2010 12:42:34 +0300
+
+phonon (4:4.6.0really4.4.1-1) unstable; urgency=low
+
+  * New upstream release:
+   - fixes crash when opening PDF document (Closes: #580802);
+
+  [ Modestas Vainius ]
+  * Add debian/watch.
+  * Update patches:
+    - refresh 01 and 02;
+    - adapt 03 to upstream changes;
+    - remove 04, was stolen from upstream.
+  * Use dh_xine, version libxine-dev build dependency to >= 1.1.16.3
+    (Closes: #575115).
+  * Update libphonon4 symbol file.
+  * Add ${misc:Depends} to phonon-backend-null.
+  * Update libphonon-dev.install: ship new style CamelCase headers in
+    /usr/include/phonon.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 09 May 2010 00:55:16 +0300
+
+phonon (4:4.6.0really4.4.0-4) unstable; urgency=high
+
+  [ Modestas Vainius ]
+  * Make libphonon-dev depend on libqt4-dev.
+  * Manually create /usr/include/qt4/phonon symlink on upgrades.
+    See #404850 why dpkg does not create it by itself.
+  * Urgency high as the bug leaves Phonon undiscoverable by KDE
+    FindPhonon.cmake after upgrade and the buggy libphonon-dev is already in
+    testing.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 29 Apr 2010 00:52:29 +0300
+
+phonon (4:4.6.0really4.4.0-3) unstable; urgency=low
+
+  [ Pino Toscano ]
+  * phonon-backend-gstreamer: depend on gstreamer0.10-alsa only on Linux
+    architectures, as ALSA is available only there. (Closes: #578255)
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 17 Apr 2010 00:56:32 +0200
+
+phonon (4:4.6.0really4.4.0-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+ -- Modestas Vainius <modax@debian.org>  Wed, 14 Apr 2010 23:13:57 +0300
+
+phonon (4:4.6.0really4.4.0-1) experimental; urgency=low
+
+  * New upstream release (4.4.0).
+
+  [ Modestas Vainius ]
+  * Add 04_skip_pa_detection_if_no_glib_loop.diff patch which fixes phonon
+    hang if GLib loop is disabled in Qt.
+  * Refresh patches.
+  * Update libphonon4 symbol file.
+  * Update libphonon-dev.install: add pulsesupport.h.
+  * Override lintian "phonon-backend-null: empty-binary-package".
+  * Add explicit debian/source/format as lintian suggests.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 07 Apr 2010 01:42:07 +0300
+
+phonon (4:4.6.0really4.3.80-1) experimental; urgency=low
+
+  * New upstream release (using really-style version number).
+
+  [ Fathi Boudra ]
+  * Build Phonon from kdesupport again:
+    - Add phonon, phonon-dbg, libphonon4 and libphonon-dev packages.
+  * Remove patches:
+    - 02_disable_phonon_build.diff - dropped.
+    - 03_r950739_fullscreen_hidecursor.diff - stolen upstream.
+    - 05_924144_encoding_local_files_fix.diff - stolen upstream.
+    - 06_983650_play_filenames_with_hash.diff - stolen upstream.
+    - 07_feature_backport_xine_equalizer.diff - stolen upstream.
+  * Update debian/control:
+    - Bump build dependencies (debhelper and pkg-kde-tools).
+    - Add libpulse-dev build dependency.
+    - Remove libphonon-dev build dependency.
+    - Bump Standards-Version from 3.8.2 to 3.8.4 (no changes needed).
+
+  [ Ana Beatriz Guerrero Lopez ]
+  * Remove myself from Uploaders.
+
+  [ Modestas Vainius ]
+  * Change my email address to modax@debian.org in Uploaders field.
+  * Fix Vcs-Browser URL.
+  * Improve descriptions.
+  * Downgrade Qt build dependency to 4.5.
+  * Bump version to 4:4.6.0really4.3.80 to be higher than the last
+    release of the Phonon libraries with the qt4-x11 source package.
+  * Convert libphonon4.symbols to new pkg-kde-tools 0.6 style, adjust
+    for 4.3.80 release.
+  * Do not install "experimental" headers to libphonon-dev.
+  * Add libphonon4 lintian overrides for
+    {shlibs,symbols}-declares-dependency-on-other-package warnings.
+  * Add 02_no_rpath.patch patch to disable /usr/lib RPATH by default.
+  * Add DEP-3 patch header to 01_phonon-inc.patch.
+  * Tweak copyright file a bit so lintian stops thinking it's of
+    old-dh-make style. Also bump years of packaging copyright.
+  * Add phonon-backends-dbg to phonon-dbg Conflicts and Replaces.
+  * Do not version dependency on the phonon metapackage.
+  * Use strict interdependencies among backends and libphonon4.
+  * Build depend on dpkg-dev 1.15.5.
+  * Make libphonon4 break phonon-backend-xine (<< 4:4.6.0really4.3.80).
+
+  [ Sune Vuorela ]
+  * Fix installing of include headers so that others can also find them.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 01 Mar 2010 13:26:14 +0100
+
+phonon-backends (4:4.3.1-5) unstable; urgency=low
+
+  +++ Changes by Modestas Vainius:
+
+  * Rename source package to phonon-backends.
+  * Add phonon-backends-dbg debug package.
+  * Add patch (06_983650_play_filenames_with_hash.diff) to fix playback of
+    files with hash (#) symbol in their name (Closes: #546271).
+  * Backport Xine equalizer support from Phonon trunk (patch
+    07_feature_backport_xine_equalizer.diff).
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 15 Oct 2009 20:31:26 +0300
+
+phonon (4:4.3.1-4) unstable; urgency=low
+
+  +++ Changes by Modestas Vainius:
+
+  * Install backends to /usr/lib/qt4 (Closes: #539623). Otherwise pure Qt4
+    applications cannot find any backends.
+
+  +++ Changes by Sune Vuorela:
+
+  * Backport a bugfix from upstream to fix encoding issues with filenames.
+  * Fix not-installed file and remove trailing whitespaces
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 06 Aug 2009 22:36:33 +0200
+
+phonon (4:4.3.1-3) unstable; urgency=low
+
+  +++ Changes by Fathi Boudra:
+
+  * Add gstreamer0.10-alsa dependency to phonon-backend-gstreamer.
+    (Closes: #532490)
+
+  +++ Changes by Modestas Vainius:
+
+  * Add 03_r950739_fullscreen_hidecursor.diff patch which makes it possible
+    to hide mouse cursor in fullscreen mode when xine backend is in use.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sun, 02 Aug 2009 00:38:26 +0200
+
+phonon (4:4.3.1-2) unstable; urgency=low
+
+  * Build Phonon from Qt sources:
+    - Add myself to Uploaders field.
+    - Add 02_disable_phonon_build.diff to avoid Phonon build.
+    - Add versioned libphonon-dev build dependency.
+    - Bump Standards-Version from 3.8.1 to 3.8.2 (no changes needed).
+    - Remove phonon, phonon-dbg, libphonon4 and libphonon-dev packages.
+    - Cleanup unnecessary files.
+
+ -- Fathi Boudra <fabo@debian.org>  Mon, 06 Jul 2009 10:26:39 +0200
+
+phonon (4:4.3.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+  +++ Changes by Modestas Vainius:
+
+  * Point Debian Vcs URLs to pkg-kde/trunk (new location).
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Mon, 09 Mar 2009 00:18:07 +0100
+
+phonon (4:4.3.0-2) unstable; urgency=low
+
+  +++ Changes by Modestas Vainius
+
+  * Bump debian/compat and debhelper build dependency to v7 (to get more
+    sophisticated debian/tmp handling).
+  * Switch from internal debian/cdbs/kde.mk to pkg-kde-tools:
+    - bump pkg-kde-tools build depend to 0.4;
+    - remove debian/cdbs directory;
+    - replace debian/cdbs/kde.mk with
+      /usr/share/pkg-kde-tools/qt-kde-team/1/debian-qt-kde.mk in debian/rules;
+    - remove custom symbolshelper rules from debian/rules.
+  * Remove THIS_SHOULD_GO_TO_UNSTABLE from debian/rules.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Thu, 19 Feb 2009 00:52:44 +0100
+
+phonon (4:4.3.0-1) experimental; urgency=low
+
+  * New upstream release.
+
+  +++ Changes by Modestas Vainius:
+
+  * Add xine backend. Based on kdebase-runtime packaging.
+  * Make xine backend a default one (via phonon metapackage).
+  * Bump cmake build dependency to 2.6.2.
+  * Bump Standards-Version to 3.8.0: add README.source.
+  * phonon-xine-backend replaces earlier kde-icons-oxygen.
+  * Add symbols file for libphonon4. This needs pkg-kde-tools (>= 0.3)
+    at build time.
+    - Hook up phonon dependency to play(), stop(), pause() etc. methods.
+  * Resync patches:
+    - drop phonon-libraryPaths.patch patch. Merged upstream.
+    - prepend sequence number to phonon-inc.patch (01_) and refresh it.
+  * Switch to new installgen format.
+  * Make phonon-backend-xine depend on gstreamer0.10-plugins-base. Otherwise,
+    it causes crashes sometimes.
+  * Make phonon-backend-gstreamer recommend gstreamer0.10-plugins-good and
+    suggest gstreamer0.10-plugins-ugly. Explain reasoning in the package
+    description.
+
+  +++ Changes by George Kiagiadakis:
+
+  * Build-conflict with the experimental libxine2 as the
+    phonon-xine backend cannot build with it.
+
+  +++ Changes by Pino Toscano:
+
+  * Update copyright file.
+
+  +++ Changes by Ana Beatriz Guerrero Lopez:
+
+  * Update packaging years and upstream URL in copyright.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 22 Jan 2009 00:31:24 +0100
+
+phonon (4:4.2.0-2) unstable; urgency=low
+
+  * Make phonon find its backends. (Closes: 498573)
+    Thanks to Vincent Fourmond for tracking down the cause and Matthias Kretz
+    for the fix.
+  * Create a magic phonon header (thanks to Matthias Kretz) and as the Qt.
+    documentation is unclear, symlink Phonon to the phonon header.
+    Also create a symlink from /usr/include/qt4/phonon to /usr/include/phonon
+    so that application using qmake can use it.
+
+ -- Sune Vuorela <debian@pusling.com>  Thu, 20 Nov 2008 20:06:34 +0100
+
+phonon (4:4.2.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+  +++ Changes by Modestas Vainius:
+
+  * Bump libphonon shlibs to 4.2.0.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Wed, 23 Jul 2008 16:01:05 +0300
+
+phonon (4:4.2~svn825656-1) unstable; urgency=low
+
+  * New snapshot, upload to unstable.
+
+ -- Ana Beatriz Guerrero Lopez <ana@debian.org>  Sun, 29 Jun 2008 00:59:59 +0200
+
+phonon (4:4.2~svn820171-2) experimental; urgency=low
+
+  +++ Changes by Modestas Vainius:
+
+  * Exclude phonon metapackage from automatic shlibdeps because libphonon4
+    itself ended up depending on it somehow.
+
+  +++ Changes by Ana Beatriz Guerrero Lopez:
+
+  * Update copyright file and write the BSD license instead of pointing at it.
+  * Replace the N/A stuff with some more meaningful (unspecified).
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Sat, 14 Jun 2008 00:54:52 +0300
+
+phonon (4:4.2~svn820171-1) experimental; urgency=low
+
+  +++ Changes by Ana Guerrero, Modestas Vainius, Pino Toscano and Sune Vuorela:
+
+  * First release. This has been split out from kde4libs.
+  * Add support for Phonon backends:
+    - Make the phonon-backend-gstreamer provide a virtual phonon-backend.
+    - Create a phonon metapackage that installs the phonon library and ensure
+      a backend is installed too.
+
+ -- Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>  Fri, 13 Jun 2008 20:15:41 +0200

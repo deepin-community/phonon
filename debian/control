@@ -1,0 +1,134 @@
+Source: phonon
+Section: sound
+Priority: optional
+Maintainer: Debian Qt/KDE Maintainers <debian-qt-kde@lists.debian.org>
+Uploaders: Modestas Vainius <modax@debian.org>,
+           Diane Trout <diane@ghic.org>,
+           Lisandro Damián Nicanor Pérez Meyer <lisandro@debian.org>,
+           Maximiliano Curia <maxy@debian.org>,
+Build-Depends: cmake (>= 3.5~),
+               debhelper (>= 12~),
+               dpkg-dev (>= 1.15.5),
+               extra-cmake-modules (>= 5.60~),
+               libglib2.0-dev,
+               libpulse-dev (>= 0.9.21),
+               libqt5opengl5-dev,
+               pkg-kde-tools (>= 0.12),
+               qtbase5-dev,
+               qttools5-dev,
+Standards-Version: 4.4.1
+Homepage: https://phonon.kde.org/
+Vcs-Browser: https://salsa.debian.org/qt-kde-team/extras/phonon
+Vcs-Git: https://salsa.debian.org/qt-kde-team/extras/phonon.git
+
+Package: libphonon4qt5-4
+Architecture: any
+Multi-Arch: same
+Section: libs
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libphonon4qt5-data (>= ${source:Version}),
+         ${misc:Depends}, ${shlibs:Depends}
+Description: multimedia framework from KDE using Qt 5 - core library
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package contains the core library of the Phonon cross-platform multimedia
+ framework from KDE. It is required to run applications that use Phonon.
+
+Package: libphonon4qt5-data
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}
+Breaks: libphonon4qt5-4 (<< 4:4.11.1-2~)
+Replaces: libphonon4qt5-4 (<< 4:4.11.1-2~)
+Description: multimedia framework from KDE using Qt 5 - core library data
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package contains the shared data for the core Phonon library.
+
+Package: libphonon4qt5-dev
+Architecture: any
+Section: libdevel
+Depends: libphonon4qt5-4 (= ${binary:Version}),
+         phonon4qt5-backend-null | phonon4qt5,
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: multimedia framework from KDE using Qt 5 - development files
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package contains the development files needed to build Qt 5 applications
+ using the Phonon cross-platform multimedia framework.
+
+Package: libphonon4qt5experimental-dev
+Architecture: any
+Section: libdevel
+Depends: libphonon4qt5experimental4 (= ${binary:Version}), ${misc:Depends}
+Breaks: libphonon4qt5-dev (<< 4:4.11.1~)
+Replaces: libphonon4qt5-dev (<< 4:4.11.1~)
+Description: multimedia framework from KDE using Qt 5 - experimental development files
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package contains the development files needed to build Phonon back-ends
+ or internal applications which need the Phonon-Experimental library.
+ Third-party applications should not depend on this library. Please read
+ README.Debian if you are considering a build-dependency on this package.
+
+Package: libphonon4qt5experimental4
+Architecture: any
+Multi-Arch: same
+Section: libs
+Pre-Depends: ${misc:Pre-Depends}
+Depends: libphonon4qt5-4 (= ${binary:Version}),
+         ${misc:Depends}, ${shlibs:Depends}
+Provides: phonon4qt5experimental-abi-1
+Description: multimedia framework from KDE using Qt 5 - experimental library (internal)
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package contains the Phonon-Experimental library, which might be needed
+ by Phonon back-ends or other internal applications. Third-party applications
+ should not depend on this library. Please read README.Debian before using this
+ library.
+
+Package: phonon4qt5
+Architecture: any
+Multi-Arch: same
+Depends: libphonon4qt5-4 (>= ${source:Version}),
+         ${misc:Depends},
+         ${phonon:Recommended-Backend-qt5} | phonon4qt5-backend,
+Suggests: phonon4qt5-backend-gstreamer, phonon4qt5-backend-vlc
+Description: multimedia framework from KDE using Qt 5 - metapackage
+ Phonon Qt 5 is a multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This metapackage ensures that the system has a working Phonon configuration
+ installed (the core library and at least one back-end).
+
+Package: phonon4qt5-backend-null
+Architecture: any
+Multi-Arch: same
+Provides: phonon4qt5-backend
+Depends: libphonon4qt5-4, ${misc:Depends}
+Conflicts: phonon4qt5-backend
+Description: multimedia framework from KDE using Qt 5 - null back-end (no real back-end)
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package does not provide any real Phonon back-end. It can be used to
+ disable Phonon audio/video capabilities. Please note that Phonon behavior
+ with this package installed has not been well tested.
+
+Package: phonon4qt5settings
+Architecture: any
+Depends: libphonon4qt5-4 (= ${binary:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends},
+Description: multimedia framework from KDE using Qt 5 - settings application
+ Phonon is a Qt 5 multimedia API, which provides a task-oriented abstraction
+ layer for capturing, mixing, processing, and playing audio and video content.
+ .
+ This package contains a graphical configuration for the Phonon cross-platform
+ multimedia framework.
