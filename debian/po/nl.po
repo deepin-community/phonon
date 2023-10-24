@@ -1,0 +1,63 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the phonon package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonon_4_4.11.1-1\n"
+"Report-Msgid-Bugs-To: phonon@packages.debian.org\n"
+"POT-Creation-Date: 2019-08-31 16:06+0000\n"
+"PO-Revision-Date: 2019-11-11 20:44+0100\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Last-Translator: Frans Spiesschaert <Frans.Spiesschaert@yucom.be>\n"
+"Language-Team: Debian Dutch l10n Team <debian-l10n-dutch@lists.debian.org>\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#. Type: title
+#. Description
+#: ../phonon4qt5-backend-null.templates:1001
+msgid "Warning: Phonon4Qt5 is not functional"
+msgstr "Waarschuwing: Phonon4Qt5 is niet functioneel"
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid "Missing back-end for Phonon4Qt5"
+msgstr "Er ontbreekt een backend voor Phonon4Qt5"
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid ""
+"Applications using Phonon4Qt5 (the KF 5 multimedia framework) will produce "
+"no audio or video output, because only a dummy Phonon back-end is installed "
+"on this system. This is typically an unintended configuration."
+msgstr ""
+"Toepassingen die gebruik maken van Phonon4Qt5 (het KF 5 multimedia-"
+"raamwerk) zullen geen audio- of video-uitvoer produceren, omdat er op het "
+"systeem enkel een dummy Phonon backend geïnstalleerd is. Dit is doorgaans "
+"een oneigenlijke configuratie."
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid ""
+"To restore full Phonon4Qt5 multimedia capabilities, install one of the real "
+"Phonon4Qt5 back-end packages which are currently available for this system:"
+msgstr ""
+"Om de volledige Phonon4Qt5 multimediamogelijkheden te herstellen, moet u "
+"een van de echte Phonon4Qt5 backend-pakketten installeren, welke momenteel "
+"voor dit systeem beschikbaar zijn:"
+
+#. Type: note
+#. Description
+#. Translators: do not translate variable names
+#. only translate "(recommended)" (the one in parenthesis)
+#: ../phonon4qt5-backend-null.templates:2001
+msgid "${recommended4qt5_backend} (recommended)${other_backends}"
+msgstr "${recommended4qt5_backend} (aanbevolen)${other_backends}"

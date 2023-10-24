@@ -1,0 +1,61 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the phonon package.
+# Helge Kreutzmann <debian@helgefjell.de>, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonon 4:4.10.3-3\n"
+"Report-Msgid-Bugs-To: phonon@packages.debian.org\n"
+"POT-Creation-Date: 2019-08-31 16:06+0000\n"
+"PO-Revision-Date: 2019-09-07 11:25+0200\n"
+"Last-Translator: Helge Kreutzmann <debian@helgefjell.de>\n"
+"Language-Team: German <debian-l10n-german@lists.debian.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Type: title
+#. Description
+#: ../phonon4qt5-backend-null.templates:1001
+msgid "Warning: Phonon4Qt5 is not functional"
+msgstr "Warnung: Phonon4Qt5 funktioniert nicht"
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid "Missing back-end for Phonon4Qt5"
+msgstr "Fehlendes Backend für Phonon4Qt5"
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid ""
+"Applications using Phonon4Qt5 (the KF 5 multimedia framework) will produce "
+"no audio or video output, because only a dummy Phonon back-end is installed "
+"on this system. This is typically an unintended configuration."
+msgstr ""
+"Anwendungen, die Phonon4Qt5 (das KF-5-Multimedia-Rahmenwerk) verwenden, "
+"werden keine Audio- oder Videoausgabe erzeugen, da auf diesem System nur ein "
+"Pseudo-Phonon-Backend installiert ist. Dies ist typischerweise keine "
+"beabsichtigte Konfiguration."
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid ""
+"To restore full Phonon4Qt5 multimedia capabilities, install one of the real "
+"Phonon4Qt5 back-end packages which are currently available for this system:"
+msgstr ""
+"Um die vollen Multimedia-Möglichkeiten von Phonon4Qt5 wiederherzustellen, "
+"installieren Sie eines der echten Phonon4Qt5-Backend-Pakete, die derzeit auf "
+"dem System verfügbar sind:"
+
+#. Type: note
+#. Description
+#. Translators: do not translate variable names
+#. only translate "(recommended)" (the one in parenthesis)
+#: ../phonon4qt5-backend-null.templates:2001
+msgid "${recommended4qt5_backend} (recommended)${other_backends}"
+msgstr "${recommended4qt5_backend} (empfohlen)${other_backends}"

@@ -1,0 +1,63 @@
+# Russian translation of debconf template for phonon
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the phonon package.
+# Lev Lamberov <dogsleg@debian.org>, 2019
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: phonon\n"
+"Report-Msgid-Bugs-To: phonon@packages.debian.org\n"
+"POT-Creation-Date: 2019-08-31 16:06+0000\n"
+"PO-Revision-Date: 2019-09-16 11:39+0500\n"
+"Language-Team: Debian L10N Russian <debian-l10n-russian@lists.debian.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"Last-Translator: Lev Lamberov <dogsleg@debian.org>\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"Language: ru\n"
+
+#. Type: title
+#. Description
+#: ../phonon4qt5-backend-null.templates:1001
+msgid "Warning: Phonon4Qt5 is not functional"
+msgstr "Внимание: Phonon4Qt5 не работает"
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid "Missing back-end for Phonon4Qt5"
+msgstr "Отсутствует движок для Phonon4Qt5"
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid ""
+"Applications using Phonon4Qt5 (the KF 5 multimedia framework) will produce "
+"no audio or video output, because only a dummy Phonon back-end is installed "
+"on this system. This is typically an unintended configuration."
+msgstr ""
+"Приложения, использующие Phonon4Qt5 (мультимедийная платформа KF 5), не "
+"будут выводить аудио или видео, поскольку в данной системе установлен лишь "
+"фиктивный движок Phonon. Обычно это непреднамеренная настройка."
+
+#. Type: note
+#. Description
+#: ../phonon4qt5-backend-null.templates:2001
+msgid ""
+"To restore full Phonon4Qt5 multimedia capabilities, install one of the real "
+"Phonon4Qt5 back-end packages which are currently available for this system:"
+msgstr ""
+"Для восстановления полных возможностей мультимедиа Phonon4Qt5 установите "
+"один из пакетов с действительным движком Phonon4Qt5, которые доступны для "
+"данной системы:"
+
+#. Type: note
+#. Description
+#. Translators: do not translate variable names
+#. only translate "(recommended)" (the one in parenthesis)
+#: ../phonon4qt5-backend-null.templates:2001
+msgid "${recommended4qt5_backend} (recommended)${other_backends}"
+msgstr "${recommended4qt5_backend} (рекомендуется)${other_backends}"
